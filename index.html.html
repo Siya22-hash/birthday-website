@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday ❤️</title>
+
+<style>
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    text-align:center;
+    color:white;
+    overflow-x:hidden;
+    background:linear-gradient(-45deg,#ff4d6d,#ff758f,#ff8fa3,#ffb3c1);
+    background-size:400% 400%;
+    animation:bg 10s ease infinite;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+h1{
+    margin-top:50px;
+    font-size:3rem;
+}
+
+button{
+    padding:15px 30px;
+    font-size:18px;
+    border:none;
+    border-radius:30px;
+    cursor:pointer;
+    background:white;
+    color:#ff4d6d;
+    font-weight:bold;
+    margin-top:20px;
+}
+
+#message, #gallery{
+    display:none;
+    margin-top:20px;
+}
+
+.gallery img{
+    width:220px;
+    height:220px;
+    object-fit:cover;
+    border-radius:15px;
+    margin:10px;
+    box-shadow:0 0 15px rgba(255,255,255,0.5);
+}
+
+.balloon{
+    position:fixed;
+    bottom:-100px;
+    font-size:40px;
+    animation:float 10s linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(0);
+    }
+    to{
+        transform:translateY(-120vh);
+    }
+}
+</style>
+</head>
+
+<body>
+
+<h1>🎂 Happy Birthday Viii 🎂</h1>
+
+<p>Someone special deserves a special surprise ❤️</p>
+
+<button onclick="showSurprise()">Click Here 🎁</button>
+
+<div id="message">
+    <h2>💖 Happy Birthday Shreshkar 💖</h2>
+    <p>Happy Birthday to the most amazing person in my life❤️</p>
+
+<p>You are my happiness, my comfort, and my favorite person. Every moment with you is special, and I'm so grateful to have you by my side. Thank you for all the love, care, and beautiful memories we share.
+
+On your special day, I wish you endless happiness, success, good health, and all the love your heart can hold. May this year bring you everything you've been dreaming of.
+
+I love you more than words can express. Happy Birthday, my love! 🎂🎉❤️✨
+    </p>
+</div>
+
+<div id="gallery" class="gallery">
+    <img src="C:\Users\Admin\OneDrive\Documents\New folder (2)\pic1.jpg.jpeg">
+    <img src="C:\Users\Admin\OneDrive\Documents\New folder (2)\pic2.jpg.jpeg">
+    <img src="C:\Users\Admin\OneDrive\Documents\New folder (2)\pic3.jpg.jpeg">
+    <img src="C:\Users\Admin\OneDrive\Documents\New folder (2)\pic4.jpg.jpeg">
+    <img src="C:\Users\Admin\OneDrive\Documents\New folder (2)\pic5.jpg.jpeg">
+</div>
+
+<!-- Music -->
+<audio id="music" loop>
+    <source src="C:\Users\Admin\OneDrive\Documents\New folder (2)\song.mp3.mpeg" type="audio/mpeg">
+</audio>
+
+<script>
+function showSurprise(){
+    document.getElementById("message").style.display="block";
+    document.getElementById("gallery").style.display="block";
+
+    document.getElementById("music").play();
+
+    createBalloons();
+}
+
+function createBalloons(){
+    for(let i=0;i<25;i++){
+        let balloon=document.createElement("div");
+        balloon.className="balloon";
+        balloon.innerHTML="🎈";
+        balloon.style.left=Math.random()*100+"vw";
+        balloon.style.animationDuration=
+            (5+Math.random()*5)+"s";
+        document.body.appendChild(balloon);
+    }
+}
+</script>
+
+</body>
+</html>
