@@ -54,19 +54,24 @@ button{
     box-shadow:0 0 15px rgba(255,255,255,0.5);
 }
 
+/* 🎈 Balloon Style */
 .balloon{
     position:fixed;
     bottom:-100px;
     font-size:40px;
-    animation:float 10s linear infinite;
+    animation:float 8s linear forwards;
+    pointer-events:none;
+    z-index:999;
 }
 
 @keyframes float{
     from{
         transform:translateY(0);
+        opacity:1;
     }
     to{
         transform:translateY(-120vh);
+        opacity:0;
     }
 }
 </style>
@@ -82,13 +87,16 @@ button{
 
 <div id="message">
     <h2>💖 Happy Birthday Shreshkar 💖</h2>
-    <p>Happy Birthday to the most amazing person in my life❤️</p>
+    <p>
+        Happy Birthday to the most amazing person in my life❤️
+    </p>
 
-<p>You are my happiness, my comfort, and my favorite person. Every moment with you is special, and I'm so grateful to have you by my side. Thank you for all the love, care, and beautiful memories we share.
+    <p>
+        You are my happiness, my comfort, and my favorite person. Every moment with you is special, and I'm so grateful to have you by my side. Thank you for all the love, care, and beautiful memories we share.
 
-On your special day, I wish you endless happiness, success, good health, and all the love your heart can hold. May this year bring you everything you've been dreaming of.
+        On your special day, I wish you endless happiness, success, good health, and all the love your heart can hold. May this year bring you everything you've been dreaming of.
 
-I love you more than words can express. Happy Birthday, my love! 🎂🎉❤️✨
+        I love you more than words can express. Happy Birthday, my love! 🎂🎉❤️✨
     </p>
 </div>
 
@@ -100,14 +108,13 @@ I love you more than words can express. Happy Birthday, my love! 🎂🎉❤️�
     <img src="pic5.jpg">
 </div>
 
-<!-- Music -->
+<!-- 🎵 Music -->
 <audio id="music" loop controls>
     <source src="song.mp3" type="audio/mpeg">
     Your browser does not support audio
 </audio>
 
 <script>
-
 function showSurprise() {
     document.getElementById("message").style.display = "block";
     document.getElementById("gallery").style.display = "block";
@@ -119,6 +126,32 @@ function showSurprise() {
     });
 
     createBalloons();
+}
+
+// 🎈 Balloon Generator
+function createBalloons() {
+    for (let i = 0; i < 25; i++) {
+        let balloon = document.createElement("div");
+        balloon.classList.add("balloon");
+
+        balloon.innerHTML = "🎈";
+
+        // random position
+        balloon.style.left = Math.random() * 100 + "vw";
+
+        // random size
+        balloon.style.fontSize = (20 + Math.random() * 40) + "px";
+
+        // random speed
+        balloon.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+        document.body.appendChild(balloon);
+
+        // remove after animation
+        setTimeout(() => {
+            balloon.remove();
+        }, 9000);
+    }
 }
 </script>
 
