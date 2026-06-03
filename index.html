@@ -101,30 +101,23 @@ I love you more than words can express. Happy Birthday, my love! 🎂🎉❤️�
 </div>
 
 <!-- Music -->
-<audio id="music" loop>
+<audio id="music" loop controls>
     <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function showSurprise(){
-    document.getElementById("message").style.display="block";
-    document.getElementById("gallery").style.display="block";
 
-    document.getElementById("music").play();
+function showSurprise() {
+    document.getElementById("message").style.display = "block";
+    document.getElementById("gallery").style.display = "block";
+
+    let music = document.getElementById("music");
+
+    music.play().catch(function(error) {
+        console.log("Audio error:", error);
+    });
 
     createBalloons();
-}
-
-function createBalloons(){
-    for(let i=0;i<25;i++){
-        let balloon=document.createElement("div");
-        balloon.className="balloon";
-        balloon.innerHTML="🎈";
-        balloon.style.left=Math.random()*100+"vw";
-        balloon.style.animationDuration=
-            (5+Math.random()*5)+"s";
-        document.body.appendChild(balloon);
-    }
 }
 </script>
 
